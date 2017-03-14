@@ -14,7 +14,7 @@ Since I was not sure about best equivalent of struct in TypeScript I used Risk a
 
 To install dependencies:
 
-```npm install```a
+```npm install```
 
 To make build:
 
