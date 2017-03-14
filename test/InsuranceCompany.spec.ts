@@ -40,7 +40,7 @@ describe("Available risks list related tests : ", () => {
     });
 
     it("should get empty list of available risks", () => {
-       expect(insuranceCompany.availableRisks.length).toBe(0);
+        expect(insuranceCompany.availableRisks.length).toBe(0);
     });
 
     it("should get list of available risks if there are more than one", () => {
@@ -120,20 +120,20 @@ describe("Policy related tests : ", () => {
         effectiveDate = policyValidFrom.clone().add(6, "months");
 
         expect(insuranceCompany.getPolicy(nameOfInsuredObject, effectiveDate)).toEqual(newPolicy);
-   });
+    });
 
     it("should add risks within policy period", () => {
         policyValidMonths = 12;
         policyValidFrom = moment().startOf("day");
         selectedRiskList = selectedRiskList.concat([risk1, risk2]);
-        
+
         let riskValidFrom : Moment = policyValidFrom.clone().add(1, "months");
 
         insuranceCompany.sellPolicy(nameOfInsuredObject, policyValidFrom, policyValidMonths, selectedRiskList);
         insuranceCompany.addRisk(nameOfInsuredObject, risk3, riskValidFrom);
 
         let effectiveDate : Moment;
-        effectiveDate = policyValidFrom.clone().add(1, "months");
+        effectiveDate = policyValidFrom.clone().add(2, "months");
 
         let carPolicy : IPolicy = insuranceCompany.getPolicy(nameOfInsuredObject, effectiveDate),
             policyRiskList : Risk[] = carPolicy.insuredRisks;
