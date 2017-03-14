@@ -123,11 +123,11 @@ describe("Policy related tests : ", () => {
    });
 
     it("should add risks within policy period", () => {
-        let riskValidFrom : Moment = moment("2017-04-02", "YYYY-MM-DD", true);
-
         policyValidMonths = 12;
         policyValidFrom = moment().startOf("day");
         selectedRiskList = selectedRiskList.concat([risk1, risk2]);
+        
+        let riskValidFrom : Moment = policyValidFrom.clone().add(1, "months");
 
         insuranceCompany.sellPolicy(nameOfInsuredObject, policyValidFrom, policyValidMonths, selectedRiskList);
         insuranceCompany.addRisk(nameOfInsuredObject, risk3, riskValidFrom);
