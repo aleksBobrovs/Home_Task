@@ -313,8 +313,7 @@ describe("Policy related tests : ", () => {
         policyValidFrom = moment().startOf("day");
         selectedRiskList = selectedRiskList.concat([risk1, risk2]);
 
-        let riskValidFrom : Moment = policyValidFrom.clone().add(3, "days"),
-            riskValidTill : Moment = riskValidFrom.clone().add(3, "days");
+        let riskValidTill : Moment = policyValidFrom.clone().add(3, "days");
 
         insuranceCompany.sellPolicy(nameOfInsuredObject, policyValidFrom, policyValidMonths, selectedRiskList);
 
